@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Me | Siva Raghu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c1c);
+    background-size:400% 400%;
+    animation:gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.contact-container{
+    width:420px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    padding:40px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
+    color:white;
+    position:relative;
+}
+
+.contact-container h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+/* Floating Input */
+.input-group{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    padding:14px 14px 14px 40px;
+    background:rgba(255,255,255,0.1);
+    border:none;
+    border-radius:12px;
+    outline:none;
+    color:white;
+    font-size:14px;
+}
+
+.input-group label{
+    position:absolute;
+    top:14px;
+    left:40px;
+    font-size:14px;
+    color:#ccc;
+    pointer-events:none;
+    transition:0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label{
+    top:-10px;
+    left:35px;
+    font-size:12px;
+    background:#0f2027;
+    padding:0 5px;
+    border-radius:5px;
+}
+
+.input-group i{
+    position:absolute;
+    top:15px;
+    left:15px;
+    color:#38bdf8;
+}
+
+textarea{
+    resize:none;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#38bdf8;
+    color:black;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(56,189,248,0.4);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    background:white;
+}
+
+/* Success Message */
+.success-message{
+    display:none;
+    margin-top:15px;
+    text-align:center;
+    color:#4ade80;
+    font-weight:600;
+}
+
+@media(max-width:500px){
+    .contact-container{
+        width:90%;
+        padding:30px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="contact-container">
+    <h2>Contact Me</h2>
+    <form onsubmit="showMessage(event)">
+        
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" required>
+            <label>Your Name</label>
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" required>
+            <label>Your Email</label>
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-tag"></i>
+            <input type="text" required>
+            <label>Subject</label>
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-message"></i>
+            <textarea rows="4" required></textarea>
+            <label>Your Message</label>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <div class="success-message" id="successMsg">
+            Message Sent Successfully!
+        </div>
+    </form>
+</div>
+
+<script>
+function showMessage(e){
+    e.preventDefault();
+    document.getElementById("successMsg").style.display="block";
+}
+</script>
+
+</body>
+</html>
